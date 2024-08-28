@@ -1,7 +1,7 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
-<H3>EX. NO.1</H3>
-<H3>DATE</H3>
+<H3>NAME       : Rohit G</H3>
+<H3>REGISTER NO: 212222240083</H3>
+<H3>EX.NO:1</H3>
+<H3>DATE:28-08-2024</H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
 ## AIM:
@@ -37,14 +37,68 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+```py
+import pandas as pd
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+
+data = pd.read_csv("Churn_Modelling.csv")
+data
+data.head()
+
+X=data.iloc[:,:-1].values
+X
+
+y=data.iloc[:,-1].values
+y
+```
+```
+data.isnull().sum()
+
+data.duplicated()
+
+data.describe()
+
+data = data.drop(['Surname', 'Geography','Gender'], axis=1)
+data.head()
+
+scaler=MinMaxScaler()
+df1=pd.DataFrame(scaler.fit_transform(data))
+print(df1)
+```
+```
+X_train ,X_test ,y_train,y_test=train_test_split(X,y,test_size=0.2)
+
+X_train
+
+X_test
+
+print("Lenght of X_test ",len(X_test))
 
 
+```
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+### Dataset:
+![image](https://github.com/user-attachments/assets/cf64da8e-2212-4fec-8fc1-c534870ede38)
+### X Values:
+![image](https://github.com/user-attachments/assets/dfed917d-1c86-4adc-a569-afb5b5aaf6b8)
+### Y Values:
+![image](https://github.com/user-attachments/assets/574d57e6-c08b-4163-8e46-2593f17790d8)
+### Null Values:
+![image](https://github.com/user-attachments/assets/34969999-611c-499a-b7e9-93463c8c00ba)
+### Duplicated Values:
+![image](https://github.com/user-attachments/assets/064e9f31-c10e-48fa-a3c0-4b96501dcd82)
+### Description:
+![image](https://github.com/user-attachments/assets/787522e4-397a-44c3-9267-f1d3ee43f0f5)
+### Normalized Dataset:
+![image](https://github.com/user-attachments/assets/538f8671-ce09-4103-a8c7-4ab6536fba44)
+### Training Data:
+![image](https://github.com/user-attachments/assets/712e9ce1-ec8b-4e3f-bc7c-b0909c17fd63)
+### Testing Data:
+![image](https://github.com/user-attachments/assets/7e0016ce-e25a-4989-95c9-54738ba29ea3)
 
 
 ## RESULT:
 Thus, Implementation of Data Preprocessing is done in python  using a data set downloaded from Kaggle.
-
-
